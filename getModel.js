@@ -1,0 +1,12 @@
+use idpdb;
+db.getName();
+db.getCollectionNames();
+db.carousel.find().pretty();
+db.flight.find().pretty();
+db.worker.find().pretty();
+db.groundHandler.find().pretty();
+db.eventHandlingEnd.find().pretty();
+db.eventWorkerStartToHandle.find().pretty();
+db.eventBaggageArrival.find().pretty();
+db.eventStorageDepletionStart.find().pretty();
+db.eventHandlingStart.find().pretty();

@@ -1,0 +1,110 @@
+MongoDB shell version: 3.2.1
+connecting to: test
+switched to db idpdb
+DB Name: idpdb
+DB Collections:
+[
+	"carousel",
+	"eventBaggageArrival",
+	"eventHandlingEnd",
+	"eventHandlingStart",
+	"eventStorageDepletionStart",
+	"eventWorkerStartToHandle",
+	"flight",
+	"groundHandler",
+	"worker"
+]
+
+Collection: carousel
+{
+	"_id" : 1,
+	"xCoordinate" : 1,
+	"yCoordinate" : 1,
+	"parkingPositions" : 1,
+	"maxCapacity" : 1,
+	"currentCapacity" : 1,
+	"flight_id" : [
+		1,
+		2
+	],
+	"workingStationsAssigned" : [
+		1,
+		2
+	]
+}
+
+
+Collection: flight
+
+{
+	"_id" : 1,
+	"requiredNumberOfParkingStations" : 10,
+	"expectedEndOfBaggageHandling" : 22,
+	"carousel_id" : 1,
+	"worker_id" : [
+		1,
+		2
+	],
+	"workstations" : [
+		1,
+		2
+	]
+}
+
+
+
+
+
+
+
+
+
+Collection: worker
+{
+	"_id" : 1,
+	"shiftStartTime" : 1,
+	"shiftStartXCoordinate" : 1,
+	"shiftStartYCoordinate" : 1,
+	"shiftEndTime" : 1,
+	"shiftEndXCoordinate" : 1,
+	"shiftEndYCoordinate" : 1,
+	"groundHandler_id" : 1
+}
+
+Collection: groundHandler
+{ "_id" : 1, "_name" : "AeroHandler" }
+
+Collection: eventHandlingEnd
+{
+	"_id" : ObjectId("572211a05bf245a41c5cdd39"),
+	"_time" : 1,
+	"flight_id" : 1,
+	"worker_id" : 1
+}
+
+Collection: eventStorageDepletionStart
+{
+	"_id" : ObjectId("572211a05bf245a41c5cdd38"),
+	"_time" : 1,
+	"flight_id" : 1
+}
+
+Collection: eventBaggageArrival 
+{
+	"_id" : ObjectId("572211d010d11ebece4a1f83"),
+	"_time" : 1,
+	"flight_id" : 1,
+	"bags" : 10
+}
+
+Collection: eventHandlingStart 
+{
+	"_id" : ObjectId("572211a05bf245a41c5cdd36"),
+	"_time" : 1,
+	"carousel_id" : 1,
+	"flight_id" : 1,
+	"workingstations" : [
+		1,
+		2
+	]
+}
