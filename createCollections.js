@@ -7,6 +7,12 @@ db.createCollection( "eventHandlingEnd");
 db.createCollection( "carousel");
 db.createCollection( "worker");
 db.createCollection( "flight");
+db.createCollection("centralStorage");
+db.centralStorage.insert({
+	_id : 1,
+	maxCapacity: 100,
+	currentCapacity : 10
+});
 db.carousel.insert(
 {
 	_id : 1,
