@@ -1,0 +1,77 @@
+db.eventHandlingStart.insert( { x: 1 } )
+
+db.createCollection( "eventHandlingStart", { time: 1, carouselId: 1, 	xCoordinate: 1, 	yCoordinate: 1, 	workingStationIds: 1, flightId: 1, requiredNumberOfParkingStations:  1, expectedEndOfBaggageHandling: 1 })
+
+db.createCollection( "eventStorageDepletionStart", { 	time:  1, flightId: 1 } )
+
+db.createCollection( "eventBaggageArrival", { time: 1, bags: 1, 	flightId: 1	})
+
+db.createCollection( "eventWorkerStartToHandle", { 	time: 1, 	flightId: 1, 	workerId:  1, 	shiftStartTime:  1, 	shiftStartXCoordinate: 1, 	shiftStartYCoordinate: 1, 	shiftEndTime: 1, 	shiftEndXCoordinate: 1, 	shiftEndYCoordinate: 1, 	groundhandlerId:  1, 	groundHandlerName: "AirGround" }) 
+'
+db.createCollection( "eventHandlingEnd", { 	time: 1, 	flightId:1 })
+ db.createCollection( "carousel", { 	carouselId:  1, 	xCoordinate: 1, 	yCoordinate: 1, 	workingStationsAssigned:  1, 	parkingPositions:  1, 	maxCapacity: 1, 	currentCapacity: 1, 	flightId: 1 })
+
+db.createCollection( "worker", { 	workerId: 1, 	shiftStartTime: 1 	shiftStartXCoordinate: 1, 	shiftStartYCoordinate: 1, 	shiftEndTime: 1, 	shiftEndXCoordinate: 1, 	shiftEndYCoordinate: 1, 	groundHandlerId: 1, 	groundHandlerName: "AirGround" }
+
+db.createCollection( "flight", { 	flightId: 1, 	requiredNumberOfParkingStations: 1, 	expectedEndOfBaggageHandling: 	1, 	carouselId: 1, 	workstations: 1, 	workerId: 1 }
+
+db.createCollection( "eventHandlingStart");
+db.createCollection( "eventStorageDepletionStart");
+db.createCollection( "eventBaggageArrival");
+db.createCollection( "eventWorkerStartToHandle");
+db.createCollection( "eventHandlingEnd");
+db.createCollection( "carousel");
+db.createCollection( "worker");
+db.createCollection( "flight");
+
+db.dropCollection("centralStorage");
+db.createCollection("centralStorage");
+db.centralStorage.insert({
+	"_id" : 1,
+	"Max Capacity" : 100,
+	"Current Capacity" : 20
+})
+db.carousel.insert({
+	"_id" : 2,
+	"xCoordinate" : 1,
+	"yCoordinate" : 2,
+	"parkingPositions" : 2,
+	"maxCapacity" : 20,
+	"currentCapacity" : 5,
+	"flight_id" : [
+		3,
+		4
+	],
+	"workingStationsAssigned" : [
+		3,
+		4
+	]
+
+});
+db.carousel.insert({
+	"_id" : 3,
+	"xCoordinate" : 3,
+	"yCoordinate" : 2,
+	"parkingPositions" : 2,
+	"maxCapacity" : 30,
+	"currentCapacity" : 5,
+	"flight_id" : [
+		5,
+		6
+	],
+	"workingStationsAssigned" : [
+		5,
+		6
+	]
+
+}
+);
+
+db.carousel.update(
+    { "_id": 1 },
+    {
+      $set: {
+        "workingStationsAssigned" : [ 1, 2, 3, 4, 10 ]
+      },
+    }
+)
